@@ -3,7 +3,7 @@ public class Entity {
     // instance variables
     private String name;
     private int age;
-    private int hitpoints;
+    protected int hitpoints;
     private String gift;
 
     // constructor
@@ -41,8 +41,16 @@ public class Entity {
     }
 
     // methods
-    public void talk() {
-        System.out.println("Hello my name is " + this.name + ". I'm " + this.age + " years old!");
+    public String talk() {
+        String phrase = "Hello my name is " + this.name + ". I'm " + this.age + " years old!";
+        System.out.println(phrase);
+        return phrase;
+
+    }
+
+    public void heal() {
+        System.out.println("Healing in some way");
+        this.hitpoints = 100;
     }
 
     public void giveGift() {
