@@ -1,4 +1,3 @@
-
 public class Entity {
 
     // instance variables
@@ -47,8 +46,7 @@ public class Entity {
     }
 
     public void giveGift() {
-        System.out
-                .println("I want to give you this important thing, the " + this.gift + ". Do you accept it?");
+        System.out.println("I want to give you this important thing, the " + this.gift + ". Do you accept it?");
     }
 
     public void attack(Entity entityToAttack) {
