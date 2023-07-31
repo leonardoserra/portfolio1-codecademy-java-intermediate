@@ -19,7 +19,7 @@ public class EntityTests {
         assertEquals("Giovanni", EntityTests.getName());
         assertEquals(30, EntityTests.getAge());
         assertEquals(100, EntityTests.getHitpoints());
-        assertEquals("paperella", EntityTests.gift());
+        assertEquals("paperella", EntityTests.getGift());
     }
 
     @After

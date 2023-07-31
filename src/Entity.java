@@ -27,7 +27,7 @@ public class Entity {
         return this.hitpoints;
     }
 
-    public String gift() {
+    public String getGift() {
         return this.gift;
     }
 
@@ -38,6 +38,10 @@ public class Entity {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    public void setGift(String gift) {
+        this.gift = gift;
     }
 
     // methods
@@ -52,8 +56,12 @@ public class Entity {
         this.hitpoints = 100;
     }
 
-    public void giveGift() {
-        System.out.println("I want to give you this important thing, the " + this.gift + ". Do you accept it?");
+    public void giveGift(Entity entityToSwapGift) {
+        String givenGift = this.getGift();
+        String receivedGift = entityToSwapGift.getGift();
+        System.out.println("I want to give you this important thing, the " + givenGift);
+        entityToSwapGift.setGift(givenGift);
+        this.setGift(receivedGift);
     }
 
     public void attack(Entity entityToAttack) {

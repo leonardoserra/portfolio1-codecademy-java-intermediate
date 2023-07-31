@@ -7,6 +7,8 @@ import org.junit.Test;
 public class AlienTest {
     Alien xxTyso;
     Alien bolpersz;
+    Human leonardo;
+    Human filiberto;
 
     @Before
     public void beforeTest() {
