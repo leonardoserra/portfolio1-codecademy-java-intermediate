@@ -42,10 +42,9 @@ public class Entity {
 
     // methods
     public String talk() {
-        String phrase = "Hello my name is " + this.name + ". I'm " + this.age + " years old!";
+        String phrase = "Hello my name is " + this.getName() + ". I'm " + this.getAge() + " years old!";
         System.out.println(phrase);
         return phrase;
-
     }
 
     public void heal() {
@@ -58,7 +57,10 @@ public class Entity {
     }
 
     public void attack(Entity entityToAttack) {
+        System.out.println("the entity is attacking");
         entityToAttack.hitpoints -= 20;
+        System.out.println("damage inflicted 20");
+
     }
 
 }

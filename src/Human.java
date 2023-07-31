@@ -18,6 +18,10 @@ public class Human extends Entity {
     }
 
     // methods
+    public void teachArt(Human humanToTeach) {
+        humanToTeach.setFavouriteArt(this.getFavouriteArt());
+    }
+
     @Override
     public void heal() {
         System.out.println("using bands and medicines");
@@ -27,4 +31,12 @@ public class Human extends Entity {
         }
         System.out.println("Healed! now your hitpoints are: " + this.getHitpoints());
     }
+
+    public void attack(Entity entityToAttack) {
+        System.out.println("Shotgun... BOOM!");
+        entityToAttack.hitpoints -= 25;
+        System.out.println("Damage inflicted: 25");
+
+    }
+
 }
