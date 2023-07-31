@@ -21,7 +21,7 @@ public class AlienTest {
     @Test
     public void AlienTest1() {
         assertEquals("This is the phrase of Object Alien xxTyso", "SLiii XxTyso. IHol ````~~~```` 5748 kapol!",
-                xxTyso.talk());
+                xxTyso.talk(bolpersz));
         assertEquals("xxTyso hitpoints", 70, xxTyso.getHitpoints());
         assertEquals("xxTyso new race", "BirKH Hantiq", xxTyso.getRace());
     }

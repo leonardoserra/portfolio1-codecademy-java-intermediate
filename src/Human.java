@@ -33,9 +33,13 @@ public class Human extends Entity {
     }
 
     public void attack(Entity entityToAttack) {
-        System.out.println("Shotgun... BOOM!");
-        entityToAttack.hitpoints -= 25;
-        System.out.println("Damage inflicted: 25");
+        if (this.checkPosition(entityToAttack)) {
+            System.out.println("Shotgun... BOOM!");
+            entityToAttack.hitpoints -= 25;
+            System.out.println("Damage inflicted: 25");
+        } else {
+            System.out.println("Attack missed, distance is to big");
+        }
 
     }
 

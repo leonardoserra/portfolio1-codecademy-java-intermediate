@@ -26,8 +26,13 @@ public class Alien extends Entity {
     }
 
     @Override
-    public String talk() {
-        String phrase = "SLiii " + this.getName() + ". IHol ````~~~```` " + this.getAge() + " kapol!";
+    public String talk(Entity entityToCheck) {
+        String phrase = "Distance to big to do this";
+        if (this.checkPosition(entityToCheck)) {
+            phrase = "SLiii " + this.getName() + ". IHol ````~~~```` " + this.getAge() + " kapol!";
+            System.out.println(phrase);
+            return phrase;
+        }
         System.out.println(phrase);
         return phrase;
     }
@@ -42,9 +47,13 @@ public class Alien extends Entity {
     }
 
     public void attack(Entity entityToAttack) {
-        System.out.println("Using lasers.. bzzz!");
-        entityToAttack.hitpoints -= 30;
-        System.out.println("Damage inflicted: 30");
+        if (this.checkPosition(entityToAttack)) {
+            System.out.println("Using lasers.. bzzz!");
+            entityToAttack.hitpoints -= 30;
+            System.out.println("Damage inflicted: 30");
+        } else {
+            System.out.println("Attack missed, distance is to big");
+        }
 
     }
 }

@@ -26,7 +26,7 @@ public class HumanTest {
     @Test
     public void humanTest1() {
         assertEquals("This is the phrase of Object Human Leonardo", "Hello my name is Leonardo. I'm 31 years old!",
-                leonardo.talk());
+                leonardo.talk(filiberto));
         assertEquals("Leonardo hitpoints", 75, leonardo.getHitpoints());
         assertEquals("XxTyso hitpoints", 75, xxTyso.getHitpoints());
         assertEquals("Filiberto hitpoints", 70, filiberto.getHitpoints());

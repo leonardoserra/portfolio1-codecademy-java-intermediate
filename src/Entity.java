@@ -1,3 +1,6 @@
+
+import java.util.Random;
+
 public class Entity {
 
     // instance variables
@@ -5,6 +8,7 @@ public class Entity {
     private int age;
     protected int hitpoints;
     private String gift;
+    private int position;
 
     // constructor
     public Entity(String name, int age, String gift) {
@@ -12,6 +16,8 @@ public class Entity {
         this.age = age;
         this.hitpoints = 100;
         this.gift = gift;
+        Random rand = new Random();
+        this.position = rand.nextInt(12);
     }
 
     // getters
@@ -31,6 +37,10 @@ public class Entity {
         return this.gift;
     }
 
+    public int getPosition() {
+        return this.position;
+    }
+
     // setters
     public void setName(String name) {
         this.name = name;
@@ -45,8 +55,18 @@ public class Entity {
     }
 
     // methods
-    public String talk() {
-        String phrase = "Hello my name is " + this.getName() + ". I'm " + this.getAge() + " years old!";
+    public boolean checkPosition(Entity entityToCheck) {
+        return this.getPosition() >= (entityToCheck.getPosition() - 5)
+                || this.getPosition() <= (entityToCheck.getPosition() + 5);
+    }
+
+    public String talk(Entity entityToCheck) {
+        String phrase = "Distance to big to do this";
+        if (this.checkPosition(entityToCheck)) {
+            phrase = "Hello my name is " + this.getName() + ". I'm " + this.getAge() + " years old!";
+            System.out.println(phrase);
+            return phrase;
+        }
         System.out.println(phrase);
         return phrase;
     }
@@ -57,17 +77,26 @@ public class Entity {
     }
 
     public void giveGift(Entity entityToSwapGift) {
-        String givenGift = this.getGift();
-        String receivedGift = entityToSwapGift.getGift();
-        System.out.println("I want to give you this important thing, the " + givenGift);
-        entityToSwapGift.setGift(givenGift);
-        this.setGift(receivedGift);
+        if (this.checkPosition(entityToSwapGift)) {
+            String givenGift = this.getGift();
+            String receivedGift = entityToSwapGift.getGift();
+            System.out.println("I want to give you this important thing, the " + givenGift);
+            entityToSwapGift.setGift(givenGift);
+            this.setGift(receivedGift);
+        } else {
+            System.out.println("Distance to big to do swap gift");
+        }
+
     }
 
     public void attack(Entity entityToAttack) {
-        System.out.println("the entity is attacking");
-        entityToAttack.hitpoints -= 20;
-        System.out.println("damage inflicted 20");
+        if (this.checkPosition(entityToAttack)) {
+            System.out.println("the entity is attacking");
+            entityToAttack.hitpoints -= 20;
+            System.out.println("damage inflicted 20");
+        } else {
+            System.out.println("Attack missed, distance is to big");
+        }
 
     }
 
